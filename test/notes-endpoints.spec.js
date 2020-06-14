@@ -104,7 +104,7 @@ describe('Notes Endpoints', function() {
 
       it('responds with 200 and the specified note', () => {
         const noteId = 2;
-        const expectedNote = testNote[noteId - 1];
+        const expectedNote = testNotes[noteId - 1];
 
         return supertest(app)
           .get(`/api/notes/${noteId}`)
@@ -152,7 +152,7 @@ describe('Notes Endpoints', function() {
         title: 'Test new note',
         content: 'Test new note content...',
         folder_id: 1,
-        date_published: new Date().toLocaleString()
+        date_published: new Date().toISOString()
       }
 
       return supertest(app)
