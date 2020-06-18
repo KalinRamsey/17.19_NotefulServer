@@ -12,7 +12,7 @@ const sanitizeFolder = folder => ({
 })
 
 foldersRouter
-  .route('/')
+  .route('/api/folders')
   .get((req, res, next) => {
     const knexInstance = req.app.get('db')
     FoldersService.getAllFolders(knexInstance)
@@ -47,7 +47,7 @@ foldersRouter
   })
 
 foldersRouter
-  .route('/:folder_id')
+  .route('/api/folders/:folder_id')
   .all((req, res, next) => {
     FoldersService.getById(
       req.app.get('db'),
